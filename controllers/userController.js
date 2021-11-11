@@ -1,12 +1,18 @@
 const User = require('../model/User')
+const bcrypt = require('bcryptjs')  
+const jwt =  require('jsonwebtoken')
 
 const userController = {
 
     register: async function(req, res){
+
+        const selectedUser = await User.findOne({email:req.body.email})
+        if(selectedUser) return res.status(400).send("Email already exists")
+
         const user = new User({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password),
         })
 
         try{
@@ -17,9 +23,18 @@ const userController = {
         }
     },
 
-    login:function(req, res) {
-        console.log('login')
-        res.send('login')
+    login:async function(req, res) {
+        const selectedUser = await User.findOne({email:req.body.email})
+        if(!selectedUser) return res.status(400).send("Email or Password incorrect")
+
+        const passordAndUserMatch =  bcrypt.compareSync(req.body.password, selectedUser.password)
+        if(!passordAndUserMatch) return res.status(400).send("Email or Password incorrect")
+        
+        const token = jwt.sign({_id: selectedUser._id}, process.env.TOKEN_SECRET)
+
+        res.header('authoriztion-token', token)
+
+        res.send("User Logged")
     }
 }
 
