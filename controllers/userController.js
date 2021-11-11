@@ -30,10 +30,9 @@ const userController = {
         const passordAndUserMatch =  bcrypt.compareSync(req.body.password, selectedUser.password)
         if(!passordAndUserMatch) return res.status(400).send("Email or Password incorrect")
         
-        const token = jwt.sign({_id: selectedUser._id}, process.env.TOKEN_SECRET)
+        const token = jwt.sign({_id: selectedUser._id, admin:selectedUser.admin}, process.env.TOKEN_SECRET)
 
         res.header('authoriztion-token', token)
-
         res.send("User Logged")
     }
 }
