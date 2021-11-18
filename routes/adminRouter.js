@@ -1,14 +1,17 @@
 const express = require('express')
 const router = express.Router()
-const auth = require('../controllers/authControlle')
+const auth = require('../controllers/authController')
 
-router.get('/', auth, (req,res)=>{
+router.get('/',auth, (req, res)=>{
 
     if(req.user.admin){
-        res.send('Esse ddado so deve ser visto pelo ADMIN')
+        res.send('Esse dado so pode ser visto pelo admin')
     }else{
-        res.status(401).send('Not Admin: Access Denied')
+        res.status(401).send('Access Denied')
     }
-}) 
+
+})
+
+
 
 module.exports = router
