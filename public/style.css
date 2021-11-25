@@ -1,0 +1,14 @@
+body{
+
+}
+
+.container{
+    height: 416px;
+    width: 368px;
+    padding: 40px;
+    border-radius: 5%;
+}
+
+#img{
+    height: 70px;
+}
