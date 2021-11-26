@@ -5,7 +5,6 @@ const userRouter =  require('./routes/userRouter')
 const mongoose = require('mongoose')
 const adminRouter = require('./routes/adminrouter')
 
-
 mongoose.connect(process.env.MONGO_CONNECTION_URL,{useNewUrlParser:true, useUnifiedTopology:true},(error)=>{
     if(error)
         console.log(error)
@@ -13,7 +12,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_URL,{useNewUrlParser:true, useUnif
         console.log("Mongo conect")
 })
 
-app.use('/user',express.json(), userRouter)
+app.use('/user', express.json(), userRouter)
 
 app.use('/admin', express.json(), adminRouter)
 
