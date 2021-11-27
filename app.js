@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_URL,{useNewUrlParser:true, useUnif
 
 app.use('/user', express.json(), userRouter)
 
-app.use('/admin', express.json(), adminRouter)
+app.use('/admin', adminRouter)
 
 app.listen(process.env.PORT, ()=>{
     console.log("Running")
