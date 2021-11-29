@@ -28,4 +28,4 @@
   <img src="https://user-images.githubusercontent.com/71359547/143713681-0fb0d4fa-4d8f-4848-934d-85b1603298e1.gif">
 </div><br>
 <a href="mailto:diogosoarespeixoto41@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
-<a href="https://www.linkedin.com/in/diogo-peixoto-21063421b/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+<a href="https://www.linkedin.com/in/diogo-soares-peixoto-21063421b"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
